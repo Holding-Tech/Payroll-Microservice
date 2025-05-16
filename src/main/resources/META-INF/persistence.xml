@@ -1,0 +1,18 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="PayrollPU" transaction-type="RESOURCE_LOCAL">
+        <class>org.example.model.Payslip</class> <!-- Add the Payslip entity -->
+
+        <properties>
+            <!-- Database connection -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/payroll" />
+            <property name="javax.persistence.jdbc.user" value="app_user" />
+            <property name="javax.persistence.jdbc.password" value="postgres" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <!-- Hibernate Settings -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
