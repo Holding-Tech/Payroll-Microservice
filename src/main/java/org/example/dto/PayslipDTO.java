@@ -1,10 +1,12 @@
 package org.example.dto;
 
+import org.example.model.Payslip;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class PayslipDTO
-{
+public class PayslipDTO {
+
     private Long employeeId;
     private BigDecimal salary;
     private BigDecimal deductions;
@@ -14,7 +16,8 @@ public class PayslipDTO
     public PayslipDTO() {
     }
 
-    public PayslipDTO(Long employeeId, BigDecimal salary, BigDecimal deductions, BigDecimal netSalary, LocalDate payDate) {
+    public PayslipDTO(Long employeeId, BigDecimal salary, BigDecimal deductions,
+                      BigDecimal netSalary, LocalDate payDate) {
         this.employeeId = employeeId;
         this.salary = salary;
         this.deductions = deductions;
@@ -60,5 +63,15 @@ public class PayslipDTO
 
     public void setPayDate(LocalDate payDate) {
         this.payDate = payDate;
+    }
+
+    public Payslip toEntity() {
+        Payslip payslip = new Payslip();
+        payslip.setEmployeeId(this.employeeId);
+        payslip.setSalary(this.salary);
+        payslip.setDeductions(this.deductions);
+        payslip.setPayDate(this.payDate);
+        // No need to set netSalary as it is computed dynamically in Payslip
+        return payslip;
     }
 }
