@@ -1,0 +1,6 @@
+org\example\repository\PayslipRepository.class
+org\example\service\PayslipService.class
+org\example\controller\PayslipController.class
+org\example\dto\PayslipDTO.class
+org\example\model\Payslip.class
+org\example\PayrollApplication.class
