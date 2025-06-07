@@ -1,12 +1,16 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "payslips")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Payslip {
 
     @Id
@@ -24,57 +28,16 @@ public class Payslip {
 
     private LocalDate payDate;
 
-    public Long getPayslipId() {
-        return payslipId;
-    }
-
-    public void setPayslipId(Long payslipId) {
-        this.payslipId = payslipId;
-    }
-
-    public Long getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public BigDecimal getSalary() {
-        return salary;
-    }
-
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
-
-    public BigDecimal getDeductions() {
-        return deductions;
-    }
-
-    public void setDeductions(BigDecimal deductions) {
-        this.deductions = deductions;
-    }
-
     public BigDecimal getNetSalary() {
-
         if (salary != null && deductions != null) {
             return salary.subtract(deductions);
         }
         return null;
     }
 
-    public LocalDate getPayDate() {
-        return payDate;
-    }
-
-    public void setPayDate(LocalDate payDate) {
-        this.payDate = payDate;
-    }
-
-
     public org.example.dto.PayslipDTO toDTO() {
         return new org.example.dto.PayslipDTO(
+                payslipId,
                 employeeId,
                 salary,
                 deductions,
@@ -83,3 +46,4 @@ public class Payslip {
         );
     }
 }
+
