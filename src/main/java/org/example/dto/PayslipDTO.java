@@ -2,12 +2,10 @@ package org.example.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.example.model.Payslip;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-//import jakarta.validation.constraints.NotNull;
+
 
 
 @Data
@@ -15,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PayslipDTO {
 
-    @JsonProperty("employee_id")
+    @JsonProperty("payslip_id")
     private Long payslipId;
 
 //    @NotNull(message = "Employee ID is required")
